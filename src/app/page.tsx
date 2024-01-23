@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 type User = {
   id: string;
@@ -49,6 +50,12 @@ const users: User[] = [
     username: "Rich-Harris",
     profilePicture: "https://avatars.githubusercontent.com/u/1162160?v=4",
   },
+  {
+    id: "6",
+    name: "Sara Vieira",
+    username: "SaraVieira",
+    profilePicture: "https://avatars.githubusercontent.com/u/1051509?v=4",
+  },
 ];
 
 type Event = {
@@ -87,6 +94,30 @@ const events: Event[] = [
     assistantsCount: 37,
     highlightedAssistantsIds: ["3", "4", "1"],
   },
+  {
+    id: "3",
+    title: "Partido de Fútbol Amistoso",
+    description: "Encuentro amistoso entre equipos locales",
+    date: new Date("2024-02-05T18:30:00.000Z"),
+    image:
+      "https://images.pexels.com/photos/685382/pexels-photo-685382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    location: "Estadio Municipal, Miraflores",
+    organizerId: "5",
+    assistantsCount: 15,
+    highlightedAssistantsIds: ["2", "4", "6"],
+  },
+  {
+    id: "4",
+    title: "Torneo de Tenis Playa",
+    description: "Competición de tenis en la playa",
+    date: new Date("2024-02-12T14:00:00.000Z"),
+    image:
+     "https://images.pexels.com/photos/2694942/pexels-photo-2694942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    location: "Playa Punta Sal, Tumbes",
+    organizerId: "6",
+    assistantsCount: 20,
+    highlightedAssistantsIds: ["1", "3", "5"],
+  },
 ];
 
 export default function Home() {
@@ -122,13 +153,15 @@ export default function Home() {
         </div>
       </aside>
 
-      <main className="grow">
-        <div className="space-y-4">
-          {events.map((event) => (
-            <EventCard key={event.id} {...event} />
-          ))}
-        </div>
-      </main>
+      <ScrollArea className="h-full">
+        <main className="grow h-screen">
+          <div className="space-y-4">
+            {events.map((event) => (
+              <EventCard key={event.id} {...event} />
+            ))}
+          </div>
+        </main>
+      </ScrollArea>
 
       <div className="flex-none w-96 border rounded-xl p-4">
         <h2>secondary</h2>
