@@ -125,7 +125,7 @@ export default function Home() {
       <main className="grow">
         <div className="space-y-4">
           {events.map((event) => (
-            <EventCard {...event} />
+            <EventCard key={event.id} {...event} />
           ))}
         </div>
       </main>
@@ -146,7 +146,7 @@ const EventCard = (event: Event) => {
   );
 
   return (
-    <Card key={event.id} className="overflow-hidden flex grid grid-cols-2">
+    <Card className="overflow-hidden flex grid grid-cols-2">
       <div className="">
         <AspectRatio ratio={1 / 1}>
           <Image
@@ -199,7 +199,7 @@ const EventCard = (event: Event) => {
           <div className="relative">
             <div className="absolute flex -space-x-4">
               {highlightedAssistants.map((user) => (
-                <Avatar className="w-7 h-7">
+                <Avatar key={user.id} className="w-7 h-7">
                   <AvatarImage src={user.profilePicture} />
                   <AvatarFallback>{user.name[0]}</AvatarFallback>
                 </Avatar>
