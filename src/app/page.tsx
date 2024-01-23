@@ -122,7 +122,7 @@ const events: Event[] = [
 
 export default function Home() {
   return (
-    <div className="container flex w-screen h-screen space-x-8 p-4">
+    <div className="container flex w-screen h-screen space-x-6 p-4">
       <aside className="flex-none w-72 bg-muted rounded p-4 space-y-4 flex flex-col rounded-xl">
         <div className="flex-none flex items-center space-x-2">
           <AwardIcon className="w-6 h-6" />
@@ -153,8 +153,9 @@ export default function Home() {
         </div>
       </aside>
 
-      <ScrollArea className="h-full">
-        <main className="grow h-screen">
+      <ScrollArea className="h-full px-4">
+        <main className="mb-8">
+          <h1 className="font-bold text-2xl mb-4">Eventos para ti</h1>
           <div className="space-y-4">
             {events.map((event) => (
               <EventCard key={event.id} {...event} />
