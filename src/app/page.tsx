@@ -240,7 +240,7 @@ const EventCard = (event: Event) => {
               ))}
             </div>
             <p className="text-sm text-muted-foreground pt-[2px] leading-6">
-              <span className="text-transparent">xxxxxxxxxx</span>
+              <span className="text-transparent">xxxxxxxxx</span>
               {highlightedAssistants[highlightedAssistants.length - 1].name +
                 " y " +
                 (event.assistantsCount - 1) +
