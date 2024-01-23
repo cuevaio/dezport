@@ -1,0 +1,112 @@
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { AwardIcon, MoreHorizontalIcon } from "lucide-react";
+import Link from "next/link";
+
+
+
+type User = {
+  id: string
+  name: string
+  username: string
+  profilePicture?: string
+
+}
+
+
+
+const users: User[] = [
+  {
+    id: "1",
+    name: "Anthony Cueva",
+    username: "cuevantn",
+    profilePicture: "https://avatars.githubusercontent.com/u/83598208?v=4"
+  },
+  {
+    id: "2",
+    name: "Guillermo Rauch",
+    username: "rauchg",
+    profilePicture: "https://avatars.githubusercontent.com/u/13041?v=4"
+  }
+]
+
+
+
+type Event = {
+  id: string
+  title: string
+  description: string
+  date: Date
+  image: string
+  location: string
+  organizerId: string
+  assistantsCount: number
+}
+const events: Event[] = [
+  {
+    id: "1",
+    title: "Voley Playuyos",
+    description: "Voley Playa en Barranco",
+    date: new Date("2024-01-28T15:00:00.000Z"),
+    image: "https://images.pexels.com/photos/2444852/pexels-photo-2444852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    location: "Playa los Yuyos, Barranco",
+    organizerId: "1",
+    assistantsCount: 7
+  },
+  {
+    id: "2",
+    title: "Maratón Entel",
+    description: "Maratón Entel 2021",
+    date: new Date("2021-10-10T15:00:00.000Z"),
+    image: "https://images.pexels.com/photos/2444852/pexels-photo-2444852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    location: "Plata Costa Azul, Ventanilla",
+    organizerId: "1",
+    assistantsCount: 37
+  }
+]
+
+
+export default function Home() {
+  return (
+    <div className="container flex w-screen h-screen space-x-8 p-4">
+      <aside className="flex-none w-72 bg-muted rounded p-4 space-y-4 flex flex-col">
+        <div className="flex-none flex items-center space-x-2">
+          <AwardIcon className="w-6 h-6" />
+          <span className="font-bold text-lg">Dezport</span>
+        </div>
+
+        <div className="grow flex flex-col space-y-2">
+          <Button variant="outline"><Link href="/">Inicio</Link></Button>
+          <Button variant="outline"><Link href="/search">Buscar</Link></Button>
+        </div>
+
+        <div className="flex-none flex flex-col">
+          <Button variant="outline" className="h-min space-x-2 justify-start">
+            <Avatar className="flex-none">
+              <AvatarImage src="https://avatars.githubusercontent.com/u/83598208?v=4" />
+              <AvatarFallback>AC</AvatarFallback>
+            </Avatar>
+            <div className="grow flex flex-col -space-y-1 items-start">
+              <span className="">Anthony Cueva</span>
+              <span className="text-sm text-muted-foreground">
+                @cuevantn
+              </span>
+            </div>
+            <MoreHorizontalIcon className="flex-none w-6 h-6" />
+          </Button>
+        </div>
+      </aside>
+
+      <main className="grow">
+        <div>
+          <h2>Content</h2>
+        </div>
+      </main>
+
+      <div className="flex-none w-64">
+        <h2>secondary</h2>
+      </div>
+    </div>
+
+  );
+}
